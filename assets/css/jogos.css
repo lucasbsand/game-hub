@@ -1,0 +1,107 @@
+#games-section {
+  text-align: center;
+
+  header {
+    margin-bottom: 0.75rem;
+
+    & .title {
+      font-size: clamp(2rem, 6vw, 3.75rem);
+      line-height: 1.2;
+
+      &.highlight {
+        background: var(--gradient-primary);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    & .description {
+      max-width: none;
+    }
+  }
+
+  & .game-card {
+    list-style: none;
+
+    background-image: var(--gradient-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    text-align: left;
+
+    padding: 1.5rem;
+
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      box-shadow: var(--shadow-card);
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+  }
+}
+
+.games-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media screen and (max-width: 640px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.game-tags {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+
+  & .icon {
+    font-size: 2.25rem;
+  }
+
+  & .tag {
+    font-size: 0.75rem;
+    line-height: calc(1 / 0.75);
+    font-weight: 600;
+    padding: 0.125rem 0.625rem;
+    color: var(--primary);
+    border-radius: var(--radius);
+    background-color: hsl(from var(--primary) h s l / 30%);
+  }
+}
+
+.game-title {
+  font-size: 1.25rem;
+  line-height: calc(1.75 / 1.25);
+  font-weight: 600;
+  color: var(--card-foreground);
+  margin: 0.75rem 0;
+}
+
+.game-description {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+}
+
+.game-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  & span {
+    color: var(--muted-foreground);
+  }
+}
+
+.star {
+  color: var(--yellow-500);
+}
